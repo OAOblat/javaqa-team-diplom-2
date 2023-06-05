@@ -8,7 +8,12 @@ public class CreditAccountTest {
     public static void main(String[] args) {
         CreditAccount account = new CreditAccount(-10, 10, 10);
         System.out.println("Начальный баланс: " + account.getBalance());
+
+        CreditAccount account2 = new CreditAccount(10, -10, 10);
+        System.out.println("Кредитный лимит: " + account.getBalance());
     }
+
+
 
     @Test
     public void shouldAddToPositiveBalance() {
