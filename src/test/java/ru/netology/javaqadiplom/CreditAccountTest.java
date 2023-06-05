@@ -120,4 +120,28 @@ public class CreditAccountTest {
         Assertions.assertEquals(0, account.getBalance());
     }
 
+    @Test
+    public void shouldCalcPercentIfNegativeBalance() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        account.pay(200);
+        Assertions.assertEquals(-30, account.yearChange());
+    }
+
+    @Test
+    public void shouldCalcPercentIfPositiveBalance() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        account.add(200);
+        Assertions.assertEquals(0, account.yearChange());
+    }
+
 }
