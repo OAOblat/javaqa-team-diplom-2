@@ -62,4 +62,62 @@ public class CreditAccountTest {
         account.pay(6000);
         Assertions.assertEquals(0, account.getBalance());
     }
+
+    @Test
+    public void shouldPayIfAmountEqualsCreditLimit() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.pay(5000);
+        Assertions.assertEquals(-5000, account.getBalance());
+    }
+
+    @Test
+    public void shouldPayIfAmountEquals0() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.pay(0);
+        Assertions.assertEquals(0, account.getBalance());
+    }
+
+    @Test
+    public void shouldPayIfAmountNegative() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.pay(-10);
+        Assertions.assertEquals(0, account.getBalance());
+    }
+
+    @Test
+    public void shouldAddWhenInitialBalanceNot0() {
+        CreditAccount account = new CreditAccount(
+                1000,
+                5_000,
+                15
+        );
+
+        account.add(3_000);
+        Assertions.assertEquals(4_000, account.getBalance());
+    }
+
+    @Test
+    public void shouldAddNegativeAmount() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        account.add(-3_000);
+        Assertions.assertEquals(0, account.getBalance());
+    }
+
 }
