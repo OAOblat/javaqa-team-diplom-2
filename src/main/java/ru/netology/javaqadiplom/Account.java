@@ -1,8 +1,8 @@
-package ru.netology.javaqadiplom;
+package java.ru.netology.javaqadiplom;
 
 public class Account {
     protected int balance;
-    protected int rate;
+    protected int rate; //ставка
 
     public boolean pay(int amount) {
         return false;
