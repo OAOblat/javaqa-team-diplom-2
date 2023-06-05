@@ -1,7 +1,5 @@
 package ru.netology.javaqadiplom;
 
-import java.ru.netology.javaqadiplom.Account;
-
 /**
  * Кредитный счёт
  * Может иметь баланс вплоть до отрицательного, но до указанного кредитного лимита.

@@ -1,7 +1,5 @@
 package ru.netology.javaqadiplom;
 
-import java.ru.netology.javaqadiplom.Account;
-
 /**
  * Сберегательный счёт
  * Может иметь баланс только в пределах от указанного минимального до указанного максимального включительно.
