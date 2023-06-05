@@ -3,8 +3,6 @@ package ru.netology.javaqadiplom;
 public class Account {
     protected int balance;
     protected int rate;
-    protected int from;
-    protected int to;
 
     // конструктор, принимающий начальный баланс счета
     public Account(int balance) {
