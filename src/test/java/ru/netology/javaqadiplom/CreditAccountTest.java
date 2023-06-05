@@ -13,8 +13,6 @@ public class CreditAccountTest {
         System.out.println("Кредитный лимит: " + account.getBalance());
     }
 
-
-
     @Test
     public void shouldAddToPositiveBalance() {
         CreditAccount account = new CreditAccount(
@@ -41,5 +39,27 @@ public class CreditAccountTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             CreditAccount account = new CreditAccount(10, -10, 10);
         });
+    }
+
+    @Test
+    public  void shouldPayWhenOk() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.pay(3000);
+        Assertions.assertEquals(-3000, account.getBalance());
+    }
+
+    @Test
+    public void shouldPayIfAmountMoreThenCreditLimit() {
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+        account.pay(6000);
+        Assertions.assertEquals(0, account.getBalance());
     }
 }
