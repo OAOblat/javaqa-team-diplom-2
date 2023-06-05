@@ -1,5 +1,7 @@
 package ru.netology.javaqadiplom;
 
+import java.ru.netology.javaqadiplom.Account;
+
 public class Bank {
 
     /**
