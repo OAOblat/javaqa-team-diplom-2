@@ -1,4 +1,4 @@
-package ru.netology.javaqadiplom;
+package java.ru.netology.javaqadiplom;
 
 public class Account {
     protected int balance;

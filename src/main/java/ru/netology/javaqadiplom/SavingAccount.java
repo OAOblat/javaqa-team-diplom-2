@@ -1,6 +1,7 @@
 package ru.netology.javaqadiplom;
 //здесь ищет дефекты участник Б
 
+import java.ru.netology.javaqadiplom.Account;
 
 /**
  * Сберегательный счёт
