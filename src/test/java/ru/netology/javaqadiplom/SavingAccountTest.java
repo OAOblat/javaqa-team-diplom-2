@@ -31,7 +31,7 @@ public class SavingAccountTest {
 
         account.add(4_000);
 
-        Assertions.assertEquals(8_000 + 2_000, account.getBalance());
+        Assertions.assertEquals(6_000 + 4_000, account.getBalance());
     }
 
     @Test
