@@ -13,7 +13,7 @@ public class CreditAccountTest {
         System.out.println("Кредитный лимит: " + account.getBalance());
     }
 
-    @Test
+    @Test //пополнение счета при нулевом балансе
     public void shouldAddToPositiveBalance() {
         CreditAccount account = new CreditAccount(
                 0,
@@ -26,7 +26,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldThrowExceptionForNegativeInitialBalance() {
+    public void shouldThrowExceptionForNegativeInitialBalance() { // выбрасывает исключение, при попытке установить начальный баланс отрицательным
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             CreditAccount account = new CreditAccount(-10, 10, 10);
@@ -34,7 +34,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldThrowExceptionForNegativeCreditLimit() {
+    public void shouldThrowExceptionForNegativeCreditLimit() { // выбрасывает исключение, при попытке установить кредитный лимит отрицательным
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             CreditAccount account = new CreditAccount(10, -10, 10);
@@ -42,7 +42,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public  void shouldPayWhenOk() {
+    public  void shouldPayWhenOk() { //должна проходить оплата на сумму, при совершении которой не баланс не выходит за пределы кредитного лимита
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
@@ -53,7 +53,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldPayIfAmountMoreThenCreditLimit() {
+    public void shouldNotPayIfAmountMoreThenCreditLimit() { // оплата не должна проходить, если по итогу баланс выходит за кредитный лимит
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
@@ -64,7 +64,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldPayIfAmountEqualsCreditLimit() {
+    public void shouldPayIfAmountEqualsCreditLimit() { // оплата должна проходить, если при совершении покупки итоговый баланс равен кредитному лимиту
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
@@ -75,18 +75,18 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldPayIfAmountEquals0() {
+    public void shouldPayIfAmountEquals0() { // проверка оплаты, если сумма покупки равно 0
         CreditAccount account = new CreditAccount(
-                0,
+                500,
                 5_000,
                 15
         );
         account.pay(0);
-        Assertions.assertEquals(0, account.getBalance());
+        Assertions.assertEquals(500, account.getBalance());
     }
 
     @Test
-    public void shouldPayIfAmountNegative() {
+    public void shouldPayIfAmountNegative() { // оплата не должна проходить, если сумма покупки  - отрицательное число
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
@@ -97,7 +97,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldAddWhenInitialBalanceNot0() {
+    public void shouldAddWhenInitialBalanceNot0() { // Пополнение счета, сумма пополнения должна суммироваться с начальным балансом
         CreditAccount account = new CreditAccount(
                 1000,
                 5_000,
@@ -109,7 +109,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldAddNegativeAmount() {
+    public void shouldAddNegativeAmount() { // пополнение не должно работать, если сумма пополнения - отрицательное число
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
@@ -121,7 +121,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldCalcPercentIfNegativeBalance() {
+    public void shouldCalcPercentIfNegativeBalance() { // проценты должны начисляться, если баланс отрицательный
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
@@ -133,7 +133,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldCalcPercentIfPositiveBalance() {
+    public void shouldCalcPercentIfPositiveBalance() { // проценты НЕ должны начисляться, если баланс положительный
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
@@ -145,7 +145,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public void shouldCalcPercentIfNegativeBalance2() {
+    public void shouldCalcPercentIfNegativeBalance2() { // проверка верного округления процентов (до единиц)
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,
