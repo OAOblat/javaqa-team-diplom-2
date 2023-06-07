@@ -19,6 +19,7 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(4_000 + 5_000, account.getBalance());
     }
+
     @Test //2 При пополнении суммы до максимума
     // не меняется начальный баланс сберегательного счета в методе add
     public void testOverAddBalanceEqualsMax() {
@@ -47,6 +48,7 @@ public class SavingAccountTest {
 
         Assertions.assertFalse(false);
     }
+
     @Test
     public void testNegativeAdd() {
         SavingAccount account = new SavingAccount(
@@ -103,6 +105,7 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(5_000 - 2_000, account.getBalance());
     }
+
     @Test
     public void testNegativePay() {
         SavingAccount account = new SavingAccount(
@@ -116,6 +119,7 @@ public class SavingAccountTest {
 
         Assertions.assertFalse(false);
     }
+
     @Test //4 Не выкидывает исключение при отрицательном минимальном
     // балансе в конструкторе с параметрами
     public void testNegativeMinBalance() {
@@ -165,8 +169,9 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(30, account.yearChange());
     }
+
     @Test //Не работает округление до целочисленного значения
-    public void testCalcPercent(){
+    public void testCalcPercent() {
         SavingAccount account = new SavingAccount(
                 290,
                 1_000,

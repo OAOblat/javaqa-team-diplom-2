@@ -43,7 +43,7 @@ public class CreditAccountTest {
     }
 
     @Test
-    public  void shouldPayWhenOk() { //должна проходить оплата на сумму, при совершении которой не баланс не выходит за пределы кредитного лимита
+    public void shouldPayWhenOk() { //должна проходить оплата на сумму, при совершении которой не баланс не выходит за пределы кредитного лимита
         CreditAccount account = new CreditAccount(
                 0,
                 5_000,

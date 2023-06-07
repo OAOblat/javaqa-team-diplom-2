@@ -22,7 +22,6 @@ public class Bank {
         if (from.getBalance() >= amount) {
             from.setBalance(from.getBalance() - amount);
             to.setBalance(to.getBalance() + amount);
-
         }
         return true;
     }
