@@ -35,6 +35,14 @@ public class CreditAccountTest {
     }
 
     @Test
+    public void shouldThrowExceptionForNegativeRate() { // выбрасывает исключение, при попытке установить ставку отрицательной
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CreditAccount account = new CreditAccount(10, 10, -10);
+        });
+    }
+
+    @Test
     public  void shouldPayWhenOk() { //должна проходить оплата на сумму, при совершении которой не баланс не выходит за пределы кредитного лимита
         CreditAccount account = new CreditAccount(
                 0,
