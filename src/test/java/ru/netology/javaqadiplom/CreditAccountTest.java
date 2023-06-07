@@ -5,13 +5,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class CreditAccountTest {
-    public static void main(String[] args) {
-        CreditAccount account = new CreditAccount(-10, 10, 10);
-        System.out.println("Начальный баланс: " + account.getBalance());
-
-        CreditAccount account2 = new CreditAccount(10, -10, 10);
-        System.out.println("Кредитный лимит: " + account.getBalance());
-    }
 
     @Test //пополнение счета при нулевом балансе
     public void shouldAddToPositiveBalance() {
@@ -154,6 +147,17 @@ public class CreditAccountTest {
 
         account.pay(290);
         Assertions.assertEquals(-43, account.yearChange());
+    }
+
+    @Test
+    public void shouldNotCalcPercentIf0() { // проценты НЕ должны начисляться, если баланс = 0
+        CreditAccount account = new CreditAccount(
+                0,
+                5_000,
+                15
+        );
+
+        Assertions.assertEquals(0, account.yearChange());
     }
 
 }
