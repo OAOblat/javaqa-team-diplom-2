@@ -2,7 +2,15 @@ package ru.netology.javaqadiplom;
 
 public class Account {
     protected int balance;
-    protected int rate; //ставка
+    protected int rate;
+
+    // конструктор, принимающий начальный баланс счета
+    public Account(int balance) {
+        this.balance = balance;
+    }
+
+    public Account() {
+    }
 
     public boolean pay(int amount) {
         return false;
@@ -14,6 +22,10 @@ public class Account {
 
     public int yearChange() {
         return 0;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     public int getBalance() {
