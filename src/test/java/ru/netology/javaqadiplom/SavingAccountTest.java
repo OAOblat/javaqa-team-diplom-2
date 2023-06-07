@@ -165,4 +165,15 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(30, account.yearChange());
     }
+    @Test //Не работает округление до целочисленного значения
+    public void testCalcPercent(){
+        SavingAccount account = new SavingAccount(
+                290,
+                1_000,
+                10_000,
+                15
+        );
+
+        Assertions.assertEquals(43, account.yearChange());
+    }
 }
