@@ -1,4 +1,5 @@
 package ru.netology.javaqadiplom;
+//здесь ищет дефекты участник А
 
 /**
  * Кредитный счёт
