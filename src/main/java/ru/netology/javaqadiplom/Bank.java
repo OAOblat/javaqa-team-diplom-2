@@ -1,6 +1,5 @@
 package ru.netology.javaqadiplom;
 
-
 public class Bank {
 
     /**
